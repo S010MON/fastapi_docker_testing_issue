@@ -5,6 +5,8 @@ FROM python:3.10
 RUN apt-get -y update
 RUN apt-get -y install vim nano
 
+WORKDIR ./app
+
 # Copy the file with the requirements to the '/app' directory.
 COPY requirements.txt .
 
@@ -15,7 +17,6 @@ EXPOSE 5000
 
 # Copy all of the code from the origin to the docker mounted directory
 ADD . .
-WORKDIR .
 
 # Run the server
-CMD ["uvicorn", "app.src.main:app", "--host", "0.0.0.0", "--port", "5000"]
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "5000"]
