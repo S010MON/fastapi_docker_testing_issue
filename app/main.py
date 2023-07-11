@@ -7,6 +7,7 @@ app = FastAPI()
 
 @app.get("/")
 async def root():
+    print(myModule.square(2))
     return {"msg": "Hello World"}
 
 if __name__ == '__main__':
