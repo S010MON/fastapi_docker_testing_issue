@@ -1,6 +1,8 @@
 from fastapi import FastAPI
 import uvicorn
 
+from subModule import myModule
+
 app = FastAPI()
 
 @app.get("/")
